@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace ChatApi.Services
+﻿namespace ChatApi.Services
 {
     public class AuthenticationService: IAuthenticationService
     {

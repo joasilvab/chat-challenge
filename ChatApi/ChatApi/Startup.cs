@@ -1,4 +1,8 @@
+using AutoMapper;
 using ChatApi.Hubs;
+using ChatApi.Models.Automapper;
+using ChatApi.Repositories;
+using ChatApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +25,10 @@ namespace ChatApi
         {
             services.AddControllers();
             services.AddSignalR();
+            services.AddAutoMapper(typeof(PostProfile));
+
+            services.AddTransient<IPostService, PostService>();
+            services.AddTransient<IPostRepository, PostRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

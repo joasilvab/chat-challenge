@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ChatApi.Models;
 
 namespace ChatApi.Controllers
 {
