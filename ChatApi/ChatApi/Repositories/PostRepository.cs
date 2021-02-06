@@ -29,7 +29,7 @@ namespace ChatApi.Repositories
         public Task<List<Post>> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
-                return session.Query<Post>().ToListAsync();
+                return session.Query<Post>().Fetch(p => p.User).ToListAsync();
         }
 
         public async Task Save(Post post)

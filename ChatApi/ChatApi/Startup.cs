@@ -25,7 +25,8 @@ namespace ChatApi
         {
             services.AddControllers();
             services.AddSignalR();
-            services.AddAutoMapper(typeof(PostProfile));
+            services.AddAutoMapper(typeof(PostProfile),
+                                   typeof(UserProfile));
 
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IPostRepository, PostRepository>();

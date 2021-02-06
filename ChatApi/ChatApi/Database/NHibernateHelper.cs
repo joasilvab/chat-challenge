@@ -72,7 +72,7 @@ namespace ChatApi.Database
         {
             var mapper = new ModelMapper();
             //Add the person mapping to the model mapper
-            mapper.AddMappings(new List<System.Type> { typeof(PostMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(PostMap), typeof(UserMap) });
             //Create and return a HbmMapping of the model mapping in code
             return mapper.CompileMappingForAllExplicitlyAddedEntities();
         }

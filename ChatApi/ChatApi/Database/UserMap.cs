@@ -5,13 +5,12 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace ChatApi.Database
 {
-    public class PostMap: ClassMapping<Post>
-    {
-        public PostMap()
+    public class UserMap: ClassMapping<User>
+    { 
+        public UserMap()
         {
             Id(x => x.Id, m => m.Generator(Generators.Identity));
-            Property(x => x.Message);
-            ManyToOne(x => x.User, m => m.Fetch(FetchKind.Join));//the join doesn't work for NHibernate Linq Query
+            Property(x => x.Username);
         }
     }
 }
