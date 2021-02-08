@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using ChatApi.Domain;
 using ChatApi.Models;
 using ChatApi.Repositories;
+using Microsoft.Extensions.Configuration;
 
 namespace ChatApi.Services
 {
@@ -13,18 +15,23 @@ namespace ChatApi.Services
         private readonly IPostRepository postRepository;
         private readonly IUserService userService;
         private readonly IMapper mapper;
+        private readonly IConfiguration configuration;
         public PostService(IPostRepository postRepository,
                            IUserService userService,
+                           IConfiguration configuration,
                            IMapper mapper)
         {
             this.postRepository = postRepository;
             this.userService = userService;
             this.mapper = mapper;
+            this.configuration = configuration;
         }
 
         public async Task<List<PostRequest>> GetPosts()
         {
-            var posts = await this.postRepository.GetAll();
+            var postsQuantity = configuration.GetValue<int>("postsQuantity");
+            var posts = await this.postRepository.Get(postsQuantity);
+            posts = posts.OrderBy(p => p.Timestamp).ToList();
             return mapper.Map<List<PostRequest>>(posts);
         }
 

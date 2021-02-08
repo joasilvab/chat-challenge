@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ChatApi.Database;
@@ -11,25 +10,10 @@ namespace ChatApi.Repositories
 {
     public class PostRepository : IPostRepository
     {
-        //public void Delete(Post post)
-        //{
-        //    using (ISession session = NHibernateHelper.OpenSession())
-        //    using (ITransaction transaction = session.BeginTransaction())
-        //    {
-        //        session.Delete(post);
-        //        transaction.Commit();
-        //    }
-        //}
-
-        //public Post Get(Guid id)
-        //{
-        //    using (ISession session = NHibernateHelper.OpenSession())
-        //        return session.Get<Post>(id);
-        //}
-        public Task<List<Post>> GetAll()
+        public Task<List<Post>> Get(int quantity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
-                return session.Query<Post>().Fetch(p => p.User).ToListAsync();
+                return session.Query<Post>().OrderByDescending(p => p.Timestamp).Take(quantity).Fetch(p => p.User).ToListAsync();
         }
 
         public async Task Save(Post post)
@@ -41,15 +25,5 @@ namespace ChatApi.Repositories
                 transaction.Commit();
             }
         }
-
-        //public void Update(Post post)
-        //{
-        //    using (ISession session = NHibernateHelper.OpenSession())
-        //    using (ITransaction transaction = session.BeginTransaction())
-        //    {
-        //        session.Update(post);
-        //        transaction.Commit();
-        //    }
-        //}
     }
 }

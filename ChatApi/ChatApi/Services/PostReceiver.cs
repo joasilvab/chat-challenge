@@ -27,7 +27,7 @@ namespace ChatApi.Services
 
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
-            _channel.QueueDeclare(queue: "hello", durable: false, exclusive: false, autoDelete: false, arguments: null);
+            _channel.QueueDeclare(queue: "chatbot", durable: false, exclusive: false, autoDelete: false, arguments: null);
         }
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
@@ -42,11 +42,11 @@ namespace ChatApi.Services
                 //HandleMessage(updateCustomerFullNameModel);
                 var chatHub = (IHubContext<ChatHub>) serviceProvider.GetService(typeof(IHubContext<ChatHub>));
                 //chatHub.Clients.All.SendAsync("MessageReceived", new MessageRequest { Message = content, User = new User { Username = "Chatbot" } });
-                chatHub.Clients.All.SendAsync("MessageReceived", new PostRequest { Message = content, Username = "Chatbot" });
+                chatHub.Clients.All.SendAsync("MessageReceived", new PostRequest { Message = content, Username = "Chatbot", Timestamp = DateTime.Now });
 
                 _channel.BasicAck(ea.DeliveryTag, false);
             };
-            _channel.BasicConsume("hello", false, consumer);
+            _channel.BasicConsume("chatbot", false, consumer);
             return Task.CompletedTask;
         }
     }

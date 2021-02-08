@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using ChatApi.Models;
 using ChatApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace ChatApi.Controllers
 {
@@ -10,6 +11,7 @@ namespace ChatApi.Controllers
     [ApiController]
     public class PostController
     {
+        private readonly IConfiguration configuration;
         private readonly IPostService postService;
         public PostController(IPostService postService)
         {
