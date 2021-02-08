@@ -1,6 +1,4 @@
-﻿using System;
-using AutoMapper;
-using ChatApi.Domain;
+﻿using AutoMapper;
 
 namespace ChatApi.Models.Automapper
 {

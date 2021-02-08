@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ChatApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class PostController
     {
@@ -17,7 +17,7 @@ namespace ChatApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<MessageRequest>>> GetPosts()
+        public async Task<ActionResult<List<PostRequest>>> GetPosts()
         {
             var posts = await postService.GetPosts();
             return posts;

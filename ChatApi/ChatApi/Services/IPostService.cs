@@ -6,7 +6,7 @@ namespace ChatApi.Services
 {
     public interface IPostService
     {
-        Task SavePost(MessageRequest message);
-        Task<List<MessageRequest>> GetPosts();
+        Task SavePost(PostRequest message);
+        Task<List<PostRequest>> GetPosts();
     }
 }

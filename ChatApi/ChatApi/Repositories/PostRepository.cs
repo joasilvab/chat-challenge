@@ -11,21 +11,21 @@ namespace ChatApi.Repositories
 {
     public class PostRepository : IPostRepository
     {
-        public void Delete(Post post)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Delete(post);
-                transaction.Commit();
-            }
-        }
+        //public void Delete(Post post)
+        //{
+        //    using (ISession session = NHibernateHelper.OpenSession())
+        //    using (ITransaction transaction = session.BeginTransaction())
+        //    {
+        //        session.Delete(post);
+        //        transaction.Commit();
+        //    }
+        //}
 
-        public Post Get(Guid id)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-                return session.Get<Post>(id);
-        }
+        //public Post Get(Guid id)
+        //{
+        //    using (ISession session = NHibernateHelper.OpenSession())
+        //        return session.Get<Post>(id);
+        //}
         public Task<List<Post>> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
@@ -42,14 +42,14 @@ namespace ChatApi.Repositories
             }
         }
 
-        public void Update(Post post)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
-            {
-                session.Update(post);
-                transaction.Commit();
-            }
-        }
+        //public void Update(Post post)
+        //{
+        //    using (ISession session = NHibernateHelper.OpenSession())
+        //    using (ITransaction transaction = session.BeginTransaction())
+        //    {
+        //        session.Update(post);
+        //        transaction.Commit();
+        //    }
+        //}
     }
 }

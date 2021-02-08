@@ -7,10 +7,10 @@ namespace ChatApi.Repositories
 {
     public interface IPostRepository
     {
-        Post Get(Guid id);
+        //Post Get(Guid id);
         Task<List<Post>> GetAll();
         Task Save(Post post);
-        void Update(Post post);
-        void Delete(Post post);
+        //void Update(Post post);
+        //void Delete(Post post);
     }
 }

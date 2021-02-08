@@ -7,5 +7,6 @@ namespace ChatApi.Domain
         public virtual int Id { get; set; }
         public virtual string Message { get; set; }
         public virtual User User { get; set; }
+        public virtual DateTime Timestamp { get; set; }
     }
 }

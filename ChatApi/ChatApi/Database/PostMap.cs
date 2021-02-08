@@ -11,6 +11,7 @@ namespace ChatApi.Database
         {
             Id(x => x.Id, m => m.Generator(Generators.Identity));
             Property(x => x.Message);
+            Property(x => x.Timestamp);
             ManyToOne(x => x.User, m => m.Fetch(FetchKind.Join));//the join doesn't work for NHibernate Linq Query
         }
     }

@@ -29,7 +29,12 @@ namespace ChatApi
                                    typeof(UserProfile));
 
             services.AddTransient<IPostService, PostService>();
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<IPostRepository, PostRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+
+            services.AddHostedService<PostReceiver>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +58,8 @@ namespace ChatApi
                 endpoints.MapControllers();
                 endpoints.MapHub<ChatHub>("/chathub");
             });
+
+
         }
     }
 }
