@@ -1,5 +1,5 @@
 # Financial chat challenge
-This project in its entirety consists of 4 parts:    
+This project, in its entirety, consist of 4 parts:    
 The **ChatApi** (this repository)  
 The **ChatApp**, that is the Angular app for the Financial chat, that make requests to the **ChatApi** and the **ChatBot**. https://github.com/joasilvab/chat-app  
 The **ChatBot**, that accepts requests and execute commands https://github.com/joasilvab/chat-bot  
@@ -13,6 +13,10 @@ You'll need to have installed Node.js (https://nodejs.org/es/) needed for the An
 
 ## Notes
 The posts are persisted on a SQLite database, named "chat.db". As there is no user registration developed so far, if you need to add users, they need to be added to this database manually to the 'users' table (This [tool](https://github.com/ErikEJ/SqlCeToolbox/wiki) is very handy for this task) and add the same user (the 'usernames' must be identical) to the `List<TestUser>` declared in "ChatIdentity\IdentityProvider\Users.cs" on the **ChatIdentity** solution.
+
+The available users for testing are:
+* Username: **user22**, password: **user22**
+* Username: **user11**, password: **user11**
 
 ## Things that need to be done
 * Only authorize the API's (**ChatApi** and **ChatBot**) to autenticated users
