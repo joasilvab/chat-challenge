@@ -11,7 +11,6 @@ namespace ChatApi.Controllers
     [ApiController]
     public class PostController
     {
-        private readonly IConfiguration configuration;
         private readonly IPostService postService;
         public PostController(IPostService postService)
         {

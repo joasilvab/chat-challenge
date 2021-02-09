@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatApi", "ChatApi\ChatApi.csproj", "{FC8EFCA7-3B26-4E42-B08A-75F9DC4C7CD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerTests", "ControllerTests\ControllerTests.csproj", "{DF731CC8-7815-49F6-AF85-A217C4D85BBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatApiTests", "ControllerTests\ChatApiTests.csproj", "{DF731CC8-7815-49F6-AF85-A217C4D85BBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
